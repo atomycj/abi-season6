@@ -236,6 +236,25 @@
     background:var(--mist);color:var(--signal-deep);font-weight:700;font-size:13.9px;
     padding:6px 12px;border-radius:999px;
   }
+  .closeNote{
+    margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+    font-size:12.2px;color:var(--spark-deep);font-weight:700;text-align:center;
+  }
+  .stepRow{
+    display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+    margin-top:34px;background:#fff;border:1px solid var(--line);border-radius:18px;padding:24px 20px;
+  }
+  .stepItem{display:flex;align-items:center;gap:12px;max-width:230px;}
+  .stepNum{
+    flex:none;width:36px;height:36px;border-radius:50%;background:var(--horizon);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:900;
+  }
+  .stepTxt{font-size:14px;color:var(--ink);line-height:1.45;}
+  .stepArrow{color:var(--line);font-size:20px;font-weight:700;}
+  @media (max-width:760px){
+    .stepRow{flex-direction:column;align-items:flex-start;}
+    .stepArrow{display:none;}
+  }
 
   /* CTA band */
   .ctaBand{
@@ -393,37 +412,57 @@
     <div class="kicker"><span data-ko>진행 방식</span><span data-en>How it Works</span></div>
     <h2><span data-ko>매주 화요일, 4주간</span><span data-en>Every Tuesday, for four weeks</span></h2>
     <p class="lead">
-      <span data-ko>그룹리더를 통해 매주 화요일 오전 11시에 그 주의 영상 링크가 공유됩니다. 링크는 72시간 동안만 열려 있으니, 그 안에 시청하고 과제를 완료하면 됩니다.</span>
-      <span data-en>Each Tuesday at 11am, your group leader shares that week's video link. It stays open for 72 hours — watch it and complete the task within that window.</span>
+      <span data-ko>그룹리더가 매주 화요일 오전 11시에 그 주의 영상 링크를 조원들에게 전달합니다. 이 링크는 정확히 <strong>72시간</strong> 동안만 열려 있습니다 — 화요일 오전 11시부터 금요일 오전 11시까지입니다. 그 안에 영상을 시청하고, 그 주에 안내되는 과제를 완료해야 합니다. 마감 시각이 지나면 링크가 닫히므로, 미리 시간을 확보해두시는 게 좋습니다.</span>
+      <span data-en>Every Tuesday at 11am, your group leader sends the video link for that week to the group. The link stays open for exactly <strong>72 hours</strong> — from Tuesday 11am to Friday 11am. Within that window, you need to watch the video and complete that week's task. Once the deadline passes, the link closes, so it's worth setting the time aside in advance.</span>
     </p>
 
     <div class="timeline">
       <div class="weekCard">
         <div class="wk num">1</div>
-        <div class="date"><span data-ko>9월 8일(화)</span><span data-en>Tue 8 Sep</span></div>
+        <div class="date"><span data-ko>공개 화 9/8 11AM</span><span data-en>Opens Tue 8 Sep, 11am</span></div>
         <div class="desc"><span data-ko>과정 시작</span><span data-en>Course begins</span></div>
+        <div class="closeNote"><span data-ko>마감 금 9/11 11AM</span><span data-en>Closes Fri 11 Sep, 11am</span></div>
       </div>
       <div class="weekCard">
         <div class="wk num">2</div>
-        <div class="date"><span data-ko>9월 15일(화)</span><span data-en>Tue 15 Sep</span></div>
+        <div class="date"><span data-ko>공개 화 9/15 11AM</span><span data-en>Opens Tue 15 Sep, 11am</span></div>
         <div class="desc"><span data-ko>2주차 영상</span><span data-en>Week 2 video</span></div>
+        <div class="closeNote"><span data-ko>마감 금 9/18 11AM</span><span data-en>Closes Fri 18 Sep, 11am</span></div>
       </div>
       <div class="weekCard">
         <div class="wk num">3</div>
-        <div class="date"><span data-ko>9월 22일(화)</span><span data-en>Tue 22 Sep</span></div>
+        <div class="date"><span data-ko>공개 화 9/22 11AM</span><span data-en>Opens Tue 22 Sep, 11am</span></div>
         <div class="desc"><span data-ko>3주차 영상</span><span data-en>Week 3 video</span></div>
+        <div class="closeNote"><span data-ko>마감 금 9/25 11AM</span><span data-en>Closes Fri 25 Sep, 11am</span></div>
       </div>
       <div class="weekCard">
         <div class="wk num">4</div>
-        <div class="date"><span data-ko>9월 29일(화)</span><span data-en>Tue 29 Sep</span></div>
-        <div class="desc"><span data-ko>마지막 주 · 10/2 종료</span><span data-en>Final week · ends 2 Oct</span></div>
+        <div class="date"><span data-ko>공개 화 9/29 11AM</span><span data-en>Opens Tue 29 Sep, 11am</span></div>
+        <div class="desc"><span data-ko>마지막 주</span><span data-en>Final week</span></div>
+        <div class="closeNote"><span data-ko>마감 금 10/2 11AM</span><span data-en>Closes Fri 2 Oct, 11am</span></div>
       </div>
     </div>
-    <div class="flowNote">
-      <span class="pill"><span data-ko>매주 화 11:00 AM 공개</span><span data-en>Released Tue 11:00 AM</span></span>
-      <span><span data-ko>→</span><span data-en>→</span></span>
-      <span class="pill"><span data-ko>72시간 이내 시청 + 과제</span><span data-en>Watch + task within 72 hrs</span></span>
+
+    <div class="stepRow">
+      <div class="stepItem">
+        <div class="stepNum num">1</div>
+        <div class="stepTxt"><span data-ko>화요일 오전 11시, 그룹리더가 그 주 영상 링크를 전달</span><span data-en>Tuesday 11am — group leader sends that week's video link</span></div>
+      </div>
+      <div class="stepArrow">→</div>
+      <div class="stepItem">
+        <div class="stepNum num">2</div>
+        <div class="stepTxt"><span data-ko>72시간 안에 영상 시청 + 안내되는 과제 완료</span><span data-en>Within 72 hours — watch the video and complete the task it explains</span></div>
+      </div>
+      <div class="stepArrow">→</div>
+      <div class="stepItem">
+        <div class="stepNum num">3</div>
+        <div class="stepTxt"><span data-ko>금요일 오전 11시, 링크 마감</span><span data-en>Friday 11am — the link closes</span></div>
+      </div>
     </div>
+    <p class="lead" style="margin-top:22px;">
+      <span data-ko>그 주에 구체적으로 어떤 과제를 해야 하는지는 매주 영상과 함께 그룹리더를 통해 안내됩니다. 4주 모두 이 흐름이 그대로 반복됩니다.</span>
+      <span data-en>Exactly what that week's task involves is explained together with the video, via your group leader. The same rhythm repeats for all four weeks.</span>
+    </p>
   </section>
 
   <hr class="divider">
