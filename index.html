@@ -272,6 +272,67 @@
   }
   .noteSmall{font-size:14.5px;color:#9FCBE0;margin-top:6px;}
 
+  /* ---------- SCORING SECTION ---------- */
+  .scoreTable{
+    width:100%;border-collapse:collapse;margin-top:22px;background:#fff;
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  }
+  .scoreTable th, .scoreTable td{
+    padding:13px 16px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--line);
+  }
+  .scoreTable th{
+    background:var(--mist);color:var(--signal-deep);font-size:12px;text-transform:uppercase;
+    letter-spacing:.06em;font-weight:700;
+  }
+  .scoreTable tr:last-child td{border-bottom:none;}
+  .scoreTable td.pt{font-weight:800;font-family:'Fraunces',serif;font-size:17px;white-space:nowrap;}
+  .pt.pos{color:var(--signal-deep);}
+  .pt.neg{color:var(--spark-deep);}
+  .pt.zero{color:var(--ink-soft);}
+
+  .bonusRow{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:22px;}
+  @media (max-width:700px){.bonusRow{grid-template-columns:1fr;}}
+  .bonusCard{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;
+  }
+  .bonusCard .bnum{
+    font-family:'Fraunces',serif;font-weight:900;font-size:26px;color:var(--signal-deep);margin-bottom:6px;
+  }
+  .bonusCard .bnum.warn{color:var(--spark-deep);}
+  .bonusCard .btxt{font-size:14px;color:var(--ink-soft);}
+
+  .formulaStrip{
+    margin-top:30px;background:var(--horizon);border-radius:18px;padding:26px 22px;
+    color:#fff;text-align:center;
+  }
+  .formulaStrip .flabel{
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8FCBE6;margin-bottom:14px;font-weight:700;
+  }
+  .formulaLine{
+    display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;
+    font-family:'Fraunces',serif;font-weight:700;font-size:15.5px;line-height:1.6;
+  }
+  .formulaLine .op{color:#8FCBE6;font-weight:400;}
+  .formulaLine .term{
+    background:rgba(255,255,255,0.1);padding:6px 12px;border-radius:9px;font-size:14px;
+  }
+  .formulaLine .eq{color:var(--spark);font-weight:900;}
+
+  .awardsRow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;}
+  @media (max-width:760px){.awardsRow{grid-template-columns:1fr;}}
+  .awardCard{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 20px;
+    text-align:center;
+  }
+  .awardCard .medal{
+    width:46px;height:46px;border-radius:50%;margin:0 auto 14px;
+    display:flex;align-items:center;justify-content:center;
+    background:var(--mist);color:var(--signal-deep);font-family:'Fraunces',serif;font-weight:900;font-size:19px;
+  }
+  .awardCard.gold .medal{background:#FFEADF;color:var(--spark-deep);}
+  .awardCard h4{font-family:'Fraunces',serif;font-size:16.5px;margin:0 0 8px;font-weight:700;}
+  .awardCard p{font-size:13px;color:var(--ink-soft);margin:0;line-height:1.5;}
+
   footer{padding:36px 0 60px;color:var(--ink-soft);font-size:14.5px;}
   footer .fline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;border-top:1px solid var(--line);padding-top:20px;}
   footer a{text-decoration:underline;}
@@ -463,6 +524,104 @@
       <span data-ko>그 주에 구체적으로 어떤 과제를 해야 하는지는 매주 영상과 함께 그룹리더를 통해 안내됩니다. 4주 모두 이 흐름이 그대로 반복됩니다.</span>
       <span data-en>Exactly what that week's task involves is explained together with the video, via your group leader. The same rhythm repeats for all four weeks.</span>
     </p>
+  </section>
+
+  <hr class="divider">
+
+  <hr class="divider">
+
+  <!-- PHOTO MISSION & SCORING -->
+  <section>
+    <div class="kicker"><span data-ko>사진 미션 & 채점 방식</span><span data-en>Photo Missions & Scoring</span></div>
+    <h2><span data-ko>4주간, 4개의 사진 미션</span><span data-en>Four weeks, four photo missions</span></h2>
+    <p class="lead">
+      <span data-ko>매주 영상 중간에 무작위 이미지가 잠깐 화면에 나타납니다. 그 이미지를 사진으로 찍어 제출하면 그 주의 미션 완료입니다. 4주 동안 총 4개의 미션이 있고, 조원 개개인의 점수가 모여 그룹 전체의 최종 점수가 됩니다.</span>
+      <span data-en>A random image flashes briefly on screen partway through each week's video. Photographing and submitting it completes that week's mission — four missions in total over four weeks. Every member's individual score rolls up into the group's final score.</span>
+    </p>
+
+    <table class="scoreTable">
+      <thead>
+        <tr>
+          <th><span data-ko>완료한 미션 수</span><span data-en>Missions Completed</span></th>
+          <th><span data-ko>개인 점수</span><span data-en>Individual Score</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><span data-ko>4개 완료</span><span data-en>All 4 completed</span></td><td class="pt pos">+5</td></tr>
+        <tr><td><span data-ko>3개 완료</span><span data-en>3 completed</span></td><td class="pt pos">+3</td></tr>
+        <tr><td><span data-ko>2개 완료</span><span data-en>2 completed</span></td><td class="pt zero">0</td></tr>
+        <tr><td><span data-ko>0~1개 완료</span><span data-en>0–1 completed</span></td><td class="pt neg">−3</td></tr>
+      </tbody>
+    </table>
+
+    <div class="bonusRow">
+      <div class="bonusCard">
+        <div class="bnum">+5</div>
+        <div class="btxt">
+          <span data-ko><strong>비회원 참여 보너스</strong> — 비회원이 사진 미션 4개를 모두 완료하고, ABI 기간 중 정식 회원으로 가입하면 그룹에 보너스 점수가 더해집니다.</span>
+          <span data-en><strong>Non-member bonus</strong> — If a non-member completes all 4 photo missions and joins as a member during the ABI period, the group earns a bonus.</span>
+        </div>
+      </div>
+      <div class="bonusCard">
+        <div class="bnum warn">−10</div>
+        <div class="btxt">
+          <span data-ko><strong>그룹 규모 조정</strong> — 그룹 인원이 15명을 초과하면 감점이 적용됩니다.</span>
+          <span data-en><strong>Group size adjustment</strong> — Groups with more than 15 members receive a deduction.</span>
+        </div>
+      </div>
+    </div>
+
+    <table class="scoreTable" style="margin-top:20px;">
+      <thead>
+        <tr>
+          <th><span data-ko>그룹 완료율</span><span data-en>Group Completion Rate</span></th>
+          <th><span data-ko>보너스 점수</span><span data-en>Bonus Score</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>95–100%</td><td class="pt pos">+12</td></tr>
+        <tr><td>90–94%</td><td class="pt pos">+8</td></tr>
+        <tr><td>80–89%</td><td class="pt pos">+4</td></tr>
+        <tr><td><span data-ko>80% 미만</span><span data-en>Below 80%</span></td><td class="pt zero">0</td></tr>
+      </tbody>
+    </table>
+
+    <div class="formulaStrip">
+      <div class="flabel"><span data-ko>최종 그룹 점수 계산</span><span data-en>Final Group Score Formula</span></div>
+      <div class="formulaLine">
+        <span class="term"><span data-ko>개인 점수 합</span><span data-en>Sum of Individual Scores</span></span>
+        <span class="op">+</span>
+        <span class="term"><span data-ko>그룹 규모 조정</span><span data-en>Group Size Adj.</span></span>
+        <span class="op">+</span>
+        <span class="term"><span data-ko>비회원 보너스</span><span data-en>Non-member Bonus</span></span>
+        <span class="op">+</span>
+        <span class="term"><span data-ko>완료율 보너스</span><span data-en>Completion Bonus</span></span>
+      </div>
+      <div class="formulaLine" style="margin-top:10px;">
+        <span class="op">÷</span>
+        <span class="term"><span data-ko>그룹 인원 수</span><span data-en>Number of Group Members</span></span>
+        <span class="eq">=</span>
+        <span class="term"><span data-ko>최종 그룹 점수</span><span data-en>Final Group Score</span></span>
+      </div>
+    </div>
+
+    <div class="awardsRow">
+      <div class="awardCard gold">
+        <div class="medal num">1</div>
+        <h4><span data-ko>우승 그룹상</span><span data-en>Winning Group Award</span></h4>
+        <p><span data-ko>최종 점수가 가장 높은 그룹이 수상하며, 그룹리더와 모든 조원이 함께 상을 받습니다.</span><span data-en>Awarded to the group with the highest final score. The group leader and every member receive it.</span></p>
+      </div>
+      <div class="awardCard">
+        <div class="medal">★</div>
+        <h4><span data-ko>완료상</span><span data-en>Completion Award</span></h4>
+        <p><span data-ko>사진 미션 4개를 모두 완료한 참가자에게 수여됩니다. 우승하지 못한 그룹에만 해당됩니다.</span><span data-en>Given to any participant who completes all 4 photo missions. Only for groups that didn't win.</span></p>
+      </div>
+      <div class="awardCard">
+        <div class="medal">◆</div>
+        <h4><span data-ko>리더상</span><span data-en>Leader Award</span></h4>
+        <p><span data-ko>조원 중 최소 3명이 미션 4개를 모두 완료하면 그룹리더가 수상합니다. 우승하지 못한 그룹에만 해당됩니다.</span><span data-en>Awarded to the group leader if at least 3 members complete all 4 missions. Only for groups that didn't win.</span></p>
+      </div>
+    </div>
   </section>
 
   <hr class="divider">
